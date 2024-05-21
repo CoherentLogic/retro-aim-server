@@ -43,8 +43,8 @@ func TestAuthService_BUCPLoginRequest(t *testing.T) {
 		{
 			name: "user provides valid credentials and logs in successfully",
 			cfg: config.Config{
-				OSCARHost: "127.0.0.1",
-				BOSPort:   "1234",
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
 			},
 			inputSNAC: wire.SNAC_0x17_0x02_BUCPLoginRequest{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -92,9 +92,9 @@ func TestAuthService_BUCPLoginRequest(t *testing.T) {
 		{
 			name: "user logs in with non-existent screen name--account is created and logged in successfully",
 			cfg: config.Config{
-				OSCARHost:   "127.0.0.1",
-				BOSPort:     "1234",
-				DisableAuth: true,
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
+				DisableAuth:     true,
 			},
 			inputSNAC: wire.SNAC_0x17_0x02_BUCPLoginRequest{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -150,9 +150,9 @@ func TestAuthService_BUCPLoginRequest(t *testing.T) {
 		{
 			name: "user logs in with invalid password--account is created and logged in successfully",
 			cfg: config.Config{
-				OSCARHost:   "127.0.0.1",
-				BOSPort:     "1234",
-				DisableAuth: true,
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
+				DisableAuth:     true,
 			},
 			inputSNAC: wire.SNAC_0x17_0x02_BUCPLoginRequest{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -208,9 +208,9 @@ func TestAuthService_BUCPLoginRequest(t *testing.T) {
 		{
 			name: "user logs in with invalid password--account already exists and logged in successfully",
 			cfg: config.Config{
-				OSCARHost:   "127.0.0.1",
-				BOSPort:     "1234",
-				DisableAuth: true,
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
+				DisableAuth:     true,
 			},
 			inputSNAC: wire.SNAC_0x17_0x02_BUCPLoginRequest{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -329,8 +329,8 @@ func TestAuthService_BUCPLoginRequest(t *testing.T) {
 		{
 			name: "user provides invalid password and receives invalid login response",
 			cfg: config.Config{
-				OSCARHost: "127.0.0.1",
-				BOSPort:   "1234",
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
 			},
 			inputSNAC: wire.SNAC_0x17_0x02_BUCPLoginRequest{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -455,8 +455,8 @@ func TestAuthService_FLAPLoginResponse(t *testing.T) {
 		{
 			name: "user provides valid credentials and logs in successfully",
 			cfg: config.Config{
-				OSCARHost: "127.0.0.1",
-				BOSPort:   "1234",
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
 			},
 			inputSNAC: wire.FLAPSignonFrame{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -496,9 +496,9 @@ func TestAuthService_FLAPLoginResponse(t *testing.T) {
 		{
 			name: "user logs in with non-existent screen name--account is created and logged in successfully",
 			cfg: config.Config{
-				OSCARHost:   "127.0.0.1",
-				BOSPort:     "1234",
-				DisableAuth: true,
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
+				DisableAuth:     true,
 			},
 			inputSNAC: wire.FLAPSignonFrame{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -546,9 +546,9 @@ func TestAuthService_FLAPLoginResponse(t *testing.T) {
 		{
 			name: "user logs in with invalid password--account is created and logged in successfully",
 			cfg: config.Config{
-				OSCARHost:   "127.0.0.1",
-				BOSPort:     "1234",
-				DisableAuth: true,
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
+				DisableAuth:     true,
 			},
 			inputSNAC: wire.FLAPSignonFrame{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -596,9 +596,9 @@ func TestAuthService_FLAPLoginResponse(t *testing.T) {
 		{
 			name: "user logs in with invalid password--account already exists and logged in successfully",
 			cfg: config.Config{
-				OSCARHost:   "127.0.0.1",
-				BOSPort:     "1234",
-				DisableAuth: true,
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
+				DisableAuth:     true,
 			},
 			inputSNAC: wire.FLAPSignonFrame{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -709,8 +709,8 @@ func TestAuthService_FLAPLoginResponse(t *testing.T) {
 		{
 			name: "user provides invalid password and receives invalid login response",
 			cfg: config.Config{
-				OSCARHost: "127.0.0.1",
-				BOSPort:   "1234",
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
 			},
 			inputSNAC: wire.FLAPSignonFrame{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -815,8 +815,8 @@ func TestAuthService_BUCPChallengeRequest(t *testing.T) {
 		{
 			name: "login with valid username, expect OK login response",
 			cfg: config.Config{
-				OSCARHost: "127.0.0.1",
-				BOSPort:   "1234",
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
 			},
 			inputSNAC: wire.SNAC_0x17_0x06_BUCPChallengeRequest{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -851,9 +851,9 @@ func TestAuthService_BUCPChallengeRequest(t *testing.T) {
 		{
 			name: "login with invalid username, expect OK login response (Cfg.DisableAuth=true)",
 			cfg: config.Config{
-				OSCARHost:   "127.0.0.1",
-				BOSPort:     "1234",
-				DisableAuth: true,
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
+				DisableAuth:     true,
 			},
 			inputSNAC: wire.SNAC_0x17_0x06_BUCPChallengeRequest{
 				TLVRestBlock: wire.TLVRestBlock{
@@ -885,8 +885,8 @@ func TestAuthService_BUCPChallengeRequest(t *testing.T) {
 		{
 			name: "login with invalid username, expect failed login response (Cfg.DisableAuth=false)",
 			cfg: config.Config{
-				OSCARHost: "127.0.0.1",
-				BOSPort:   "1234",
+				OSCARClientHost: "127.0.0.1",
+				BOSPort:         "1234",
 			},
 			inputSNAC: wire.SNAC_0x17_0x06_BUCPChallengeRequest{
 				TLVRestBlock: wire.TLVRestBlock{

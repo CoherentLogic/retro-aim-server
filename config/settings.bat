@@ -33,6 +33,11 @@ rem Set logging granularity. Possible values: 'trace', 'debug', 'info', 'warn',
 rem 'error'.
 set LOG_LEVEL=info
 
+rem Specifies the IP address that the TCP listener should bind to. Setting this
+rem to '0.0.0.0' allows the listener to accept connections on all IPv4
+rem interfaces of the host.
+set OSCAR_LISTEN_HOST=0.0.0.0
+
 rem The hostname that AIM clients connect to in order to reach OSCAR services
 rem (auth, BOS, BUCP, etc). Make sure the hostname is reachable by all clients.
 rem For local development, the default loopback address should work provided the
@@ -40,5 +45,5 @@ rem server and AIM client(s) are running on the same machine. For LAN-only
 rem clients, a private IP address (e.g. 192.168..) or hostname should suffice.
 rem For clients connecting over the Internet, specify your public IP address and
 rem ensure that TCP ports 5190-5194 are open on your firewall.
-set OSCAR_HOST=127.0.0.1
+set OSCAR_CLIENT_HOST=127.0.0.1
 

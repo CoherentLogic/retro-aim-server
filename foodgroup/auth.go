@@ -251,7 +251,7 @@ func (s AuthService) login(
 		return wire.TLVRestBlock{
 			TLVList: []wire.TLV{
 				wire.NewTLV(wire.LoginTLVTagsScreenName, screenName),
-				wire.NewTLV(wire.LoginTLVTagsReconnectHere, net.JoinHostPort(s.config.OSCARHost, s.config.BOSPort)),
+				wire.NewTLV(wire.LoginTLVTagsReconnectHere, net.JoinHostPort(s.config.OSCARClientHost, s.config.BOSPort)),
 				wire.NewTLV(wire.LoginTLVTagsAuthorizationCookie, sess.ID()),
 			},
 		}, nil

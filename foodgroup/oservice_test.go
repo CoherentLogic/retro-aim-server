@@ -51,8 +51,8 @@ func TestOServiceServiceForBOS_ServiceRequest(t *testing.T) {
 		{
 			name: "request info for connecting to chat nav, return chat nav connection metadata",
 			cfg: config.Config{
-				OSCARHost:   "127.0.0.1",
-				ChatNavPort: "1234",
+				OSCARClientHost: "127.0.0.1",
+				ChatNavPort:     "1234",
 			},
 			userSession: newTestSession("user_screen_name", sessOptCannedID),
 			inputSNAC: wire.SNACMessage{
@@ -85,8 +85,8 @@ func TestOServiceServiceForBOS_ServiceRequest(t *testing.T) {
 		{
 			name: "request info for connecting to alert svc, return alert svc connection metadata",
 			cfg: config.Config{
-				OSCARHost: "127.0.0.1",
-				AlertPort: "1234",
+				OSCARClientHost: "127.0.0.1",
+				AlertPort:       "1234",
 			},
 			userSession: newTestSession("user_screen_name", sessOptCannedID),
 			inputSNAC: wire.SNACMessage{
@@ -119,8 +119,8 @@ func TestOServiceServiceForBOS_ServiceRequest(t *testing.T) {
 		{
 			name: "request info for connecting to chat room, return chat service and chat room metadata",
 			cfg: config.Config{
-				OSCARHost: "127.0.0.1",
-				ChatPort:  "1234",
+				OSCARClientHost: "127.0.0.1",
+				ChatPort:        "1234",
 			},
 			chatRoom: &state.ChatRoom{
 				CreateTime:     time.UnixMilli(0),
@@ -173,8 +173,8 @@ func TestOServiceServiceForBOS_ServiceRequest(t *testing.T) {
 		{
 			name: "request info for connecting to non-existent chat room, return ErrChatRoomNotFound",
 			cfg: config.Config{
-				OSCARHost: "127.0.0.1",
-				ChatPort:  "1234",
+				OSCARClientHost: "127.0.0.1",
+				ChatPort:        "1234",
 			},
 			chatRoom:    nil,
 			userSession: newTestSession("user_screen_name", sessOptCannedID),
